@@ -1,5 +1,6 @@
 package bag1;
 
+//·â×°
 class GoodDog{
 	private int size;
 	
