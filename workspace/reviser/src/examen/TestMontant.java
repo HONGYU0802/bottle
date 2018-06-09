@@ -7,8 +7,8 @@ enum Monnaie{
 
 //Q2: Declaration de la classe Montant
 class Montant {
-	double somme;
-	Monnaie monnaie;
+	private double somme;
+	private Monnaie monnaie;
 	
 	void setsomme(double s){
 		somme=s;
@@ -68,8 +68,8 @@ public class TestMontant {
 		montant2.setmonnaie(Monnaie.dollar);
 		
 		//Q7: Test d'egalite entre deux montants (test)
-		if(montant1.monnaie!=montant2.monnaie){
-			if(montant1.somme==montant2.ConversionMontant()){
+		if(montant1.monnaie()!=montant2.monnaie()){
+			if(montant1.doubleValue()==montant2.ConversionMontant()){
 				System.out.println("Ils sont egales");
 			}
 			else{
@@ -77,7 +77,7 @@ public class TestMontant {
 			}		
 		}
 		else{
-			if(montant1.somme==montant2.somme){
+			if(montant1.doubleValue()==montant2.doubleValue()){
 				System.out.println("Ils sont egales");
 			}
 			else{
@@ -86,12 +86,12 @@ public class TestMontant {
 		}
 		
 		//Q8: Comparaison selon l'ordre naturel sur meme monnaie (test)
-		if(montant1.monnaie!=montant2.monnaie){
+		if(montant1.monnaie()!=montant2.monnaie()){
 			montant1.ConversionMontant();
-			if(montant1.somme==montant2.somme){
+			if(montant1.doubleValue()==montant2.doubleValue()){
 				System.out.println("montant1 = montant2");
 			}
-			else if(montant1.somme>montant2.somme){
+			else if(montant1.doubleValue()>montant2.doubleValue()){
 				System.out.println("montant1 > montant2");
 			}
 			else{
@@ -99,10 +99,10 @@ public class TestMontant {
 			}
 		}
 		else{
-			if(montant1.somme==montant2.somme){
+			if(montant1.doubleValue()==montant2.doubleValue()){
 				System.out.println("montant1 = montant2");
 			}
-			else if(montant1.somme>montant2.somme){
+			else if(montant1.doubleValue()>montant2.doubleValue()){
 				System.out.println("montant1 > montant2");
 			}
 			else{
