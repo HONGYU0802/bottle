@@ -1,10 +1,14 @@
 package examen;
 
+
+
 //Q2: Declaration de la classe Montant
 public class Montant {
+	
+	public static int flag=0;
 	private double somme;
 	private Monnaie monnaie;
-	
+
 	void setsomme(double s){
 		this.somme=s;
 	}
@@ -24,18 +28,18 @@ public class Montant {
 	
 	//Q4: Initialisation (test)
 	void Initial(){
-		somme=0;
-		monnaie=Monnaie.euro;
+		this.somme=0;
+		this.monnaie=Monnaie.euro;
 	}
 	
 	//Q5: Conversion en chaine de caractere????? (test)
 	void ConversionCaractere(){
 		if(monnaie==Monnaie.euro){
-			monnaie=Monnaie.dollar;
+			this.monnaie=Monnaie.dollar;
 			System.out.println(somme+" dollar");
 		}
-		if(monnaie==Monnaie.dollar){
-			monnaie=Monnaie.euro;
+		else if(monnaie==Monnaie.dollar){
+			this.monnaie=Monnaie.euro;
 			System.out.println(somme+" euro");
 		}
 	}
@@ -43,30 +47,34 @@ public class Montant {
 	//Q6: Conversion d'un montant (test)
 	double ConversionMontant(){
 		if(monnaie==Monnaie.euro){
-			somme=0.87*somme;
+			this.somme*=0.87;
 		}
 		if(monnaie==Monnaie.dollar){
-			somme=1.13*somme;
+			this.somme*=1.13;
 		}
 		return somme;
 	}
 	
 	//Q7: Test d'egalite entre deux montants (test)
-	void egale(Montant montant2){
+	boolean egale(Montant montant2){
 			if(this.monnaie!=montant2.monnaie()){
 				if(this.doubleValue()==montant2.ConversionMontant()){
-					System.out.println("Ils sont egales");
+					System.out.println("ILs sont egales");
+					return true;
 				}
 				else{
-					System.out.println("Ils ne sont pas egales");
+					System.out.println("ILs ne sont pas egales");
+					return false;
 				}		
 			}
 			else{
 				if(this.doubleValue()==montant2.doubleValue()){
-					System.out.println("Ils sont egales");
+					System.out.println("ILs sont egales");
+					return true;
 				}
 				else{
-					System.out.println("Ils ne sont pas egales");
+					System.out.println("ILs ne sont pas egales");
+					return false;
 				}
 			}
 	}
@@ -77,23 +85,35 @@ public class Montant {
 				this.ConversionMontant();
 				if(this.doubleValue()==montant2.doubleValue()){
 					System.out.println("montant1 = montant2");
+					flag=1;
+					return;
 				}
 				else if(this.doubleValue()>montant2.doubleValue()){
 					System.out.println("montant1 > montant2");
+					flag=2;
+					return;
 				}
 				else{
 					System.out.println("montant1 < montant2");
+					flag=3;
+					return;
 				}
 			}
 			else{
 				if(this.doubleValue()==montant2.doubleValue()){
 					System.out.println("montant1 = montant2");
+					flag=4;
+					return;
 				}
 				else if(this.doubleValue()>montant2.doubleValue()){
 					System.out.println("montant1 > montant2");
+					flag=5;
+					return;
 				}
 				else{
 					System.out.println("montant1 < montant2");
+					flag=6;
+					return;
 				}
 			}
 	}
