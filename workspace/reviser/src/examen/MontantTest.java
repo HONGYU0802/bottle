@@ -61,7 +61,7 @@ public class MontantTest {
 		int actualReturn;
 		expectedReturn = 3;
 		m.Comparaison(m1);
-		actualReturn=m.flag;
+		actualReturn=Montant.flag;
 		assertEquals(expectedReturn,actualReturn);
 	}
 
