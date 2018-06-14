@@ -1,11 +1,11 @@
-package BuilderComposite;
+package EX2_BuilderComposite;
 
 import java.awt.Color;
 import java.awt.Point;
 
-public class FormeGeometrique {
+//leaf
+public class Cercle implements Forme{
 	private final Point coordonnees;
-	private final Forme forme;
 	
 	private final Color remplissageColor;
 	private final Color contourColor;
@@ -14,16 +14,14 @@ public class FormeGeometrique {
 	public static class Builder{
 		//Required parameters
 		private final Point coordonnees;
-		private final Forme forme;
 		
 		//Optional parameters
 		private Color remplissageColor=Color.black;
 		private Color contourColor=Color.blue;
 		
 		//Builder的构造函数，指定必须的参数
-		public Builder (Point coordonnees, Forme forme){
+		public Builder (Point coordonnees){
 			this.coordonnees=coordonnees;
-			this.forme=forme;
 		}
 		
 		public Builder remplissageColor(Color color){
@@ -36,24 +34,28 @@ public class FormeGeometrique {
 			return this;
 		}
 		
-		public FormeGeometrique build(){
-			return new FormeGeometrique(this);
+		public Cercle build(){
+			return new Cercle(this);
 		}
 		
 	}
 	
-	private FormeGeometrique(Builder builder){
+	private Cercle(Builder builder){
 		this.coordonnees=builder.coordonnees;
-		this.forme=builder.forme;
 		
 		this.remplissageColor=builder.remplissageColor;
 		this.contourColor=builder.contourColor;
 	}
 	
+	
 	@Override
 	public String toString(){
-		return "Forme: "+forme+"\nCoordonnees: "+coordonnees+"\nRemplissageColor: "+remplissageColor+"\nContourColor: "+contourColor;
+		return "Cercle \nCoordonnees: "+coordonnees+"\nRemplissageColor: "+remplissageColor+"\nContourColor: "+contourColor+"\n";
 	}
 	
+	@Override
+	public void print(){
+		//System.out.println("Cercle");
+	}
 
 }

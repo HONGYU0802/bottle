@@ -1,4 +1,4 @@
-package examen;
+package EX1_Classes;
 
 
 

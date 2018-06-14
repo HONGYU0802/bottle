@@ -1,6 +1,6 @@
-package examen;
+package EX1_Classes;
 
-public class TestMontantDriver {
+public class MontantDriver {
 
 	public static void main(String[] args) {
 		Montant montant1=new Montant();
