@@ -47,10 +47,10 @@ public class Montant {
 	//Q6: Conversion d'un montant (test)
 	double ConversionMontant(){
 		if(monnaie==Monnaie.euro){
-			this.somme*=0.87;
+			this.somme*=1.16;
 		}
 		if(monnaie==Monnaie.dollar){
-			this.somme*=1.13;
+			this.somme*=0.84;
 		}
 		return somme;
 	}
