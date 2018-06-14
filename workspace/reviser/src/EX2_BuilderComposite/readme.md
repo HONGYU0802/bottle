@@ -1,1 +1,1 @@
-![xgcalendar screenshot1](calendarApp/img/calendar1.jpg) 
+![UML builderComposite](calendarApp/img/calendar1.jpg) 
