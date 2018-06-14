@@ -55,7 +55,7 @@ public class Cercle implements Forme{
 	
 	@Override
 	public void print(){
-		//System.out.println("Cercle");
+		//System.out.println(this.toString());
 	}
 
 }
