@@ -1,1 +1,1 @@
-![xgcalendar screenshot1](res/BuilderComposite.png) 
+![xgcalendar screenshot1](examen-S2/workspace/reviser/res/BuilderComposite.png) 
