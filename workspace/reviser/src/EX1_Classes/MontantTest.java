@@ -8,12 +8,16 @@ import org.junit.Test;
 
 public class MontantTest {
 	
-	Montant m= new Montant();
-	Montant m1= new Montant();
+	Montant m;
+	Montant m1;
 	
 	
 	@Before
 	public void setUp() throws Exception {
+		m= new Montant();
+		m1= new Montant();
+		m.Initial();
+		m1.Initial();
 	}
 
 	@After
@@ -22,38 +26,30 @@ public class MontantTest {
 
 	@Test
 	public final void testInitial() {
-		m.Initial();
 		assertEquals(0,m.doubleValue(),0.01);
 		assertEquals(Monnaie.euro,m.monnaie());
 	}
 
 	@Test
 	public final void testConversionCaractere() {
-		m.Initial();
 		assertEquals("0.0euro", m.ConversionCaractere());
 	}
 
 	@Test
 	public final void testConversionMontant() {
-		m.Initial();
 		m.setsomme(100);
 		assertEquals(116,m.ConversionMontant(),0.01);
 	}
 	
 	@Test
 	public final void testEgale() {
-		m.Initial();
 		m.setsomme(100);
-		m1.Initial();
 		m1.setsomme(1000);		
 		assertEquals("Ils ne sont pas egales", m.egale(m1));
 	}
 
 	@Test
 	public final void testComparaison() {
-		m.Initial();
-		m1.Initial();
-		
 		m.setsomme(100);
 		m1.setsomme(100);
 		m1.setmonnaie(Monnaie.dollar);

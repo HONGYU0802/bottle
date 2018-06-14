@@ -47,15 +47,20 @@ public class Cercle implements Forme{
 		this.contourColor=builder.contourColor;
 	}
 	
+	private String name;
+
+	public void setName(String name){
+		this.name=name;
+	}
 	
 	@Override
 	public String toString(){
-		return "Cercle \nCoordonnees: "+coordonnees+"\nRemplissageColor: "+remplissageColor+"\nContourColor: "+contourColor+"\n";
+		return name+"\nCoordonnees: "+coordonnees+"\nRemplissageColor: "+remplissageColor+"\nContourColor: "+contourColor+"\n";
 	}
 	
 	@Override
 	public void print(){
-		//System.out.println(this.toString());
+		System.out.println(this.toString());
 	}
 
 }

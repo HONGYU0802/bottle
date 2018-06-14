@@ -6,16 +6,22 @@ import java.util.List;
 //Composite
 public class Groupe implements Forme{
 	private List<Forme> childFormes=new ArrayList<Forme>();
+	private String name;
+
+	public void setName(String name){
+		this.name=name;
+	}
+	
 	
 	@Override
 	public String toString(){
-		return "\n------------Croupe----------";
+		return name;
 	}
 	
 	@Override
 	public void print(){
-		for(Forme forme : childFormes){
-			System.out.println(forme.toString());
+		System.out.println(toString());
+		for(Forme forme : childFormes){		
 			forme.print();
 		}
 	}
