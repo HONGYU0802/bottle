@@ -30,16 +30,14 @@ public class MontantTest {
 	@Test
 	public final void testConversionCaractere() {
 		m.Initial();
-		m.ConversionCaractere();
-		assertEquals(Monnaie.dollar, m.monnaie());
+		assertEquals("0.0euro", m.ConversionCaractere());
 	}
 
 	@Test
 	public final void testConversionMontant() {
 		m.Initial();
 		m.setsomme(100);
-		m.ConversionMontant();
-		assertEquals(87, m.doubleValue(),0.01);
+		assertEquals(116,m.ConversionMontant(),0.01);
 	}
 	
 	@Test
@@ -48,21 +46,19 @@ public class MontantTest {
 		m.setsomme(100);
 		m1.Initial();
 		m1.setsomme(1000);		
-		assertEquals(false, m.egale(m1));
+		assertEquals("Ils ne sont pas egales", m.egale(m1));
 	}
 
 	@Test
 	public final void testComparaison() {
 		m.Initial();
-		m1.setmonnaie(Monnaie.dollar);
+		m1.Initial();
+		
 		m.setsomme(100);
 		m1.setsomme(100);
-		int expectedReturn;
-		int actualReturn;
-		expectedReturn = 3;
-		m.Comparaison(m1);
-		actualReturn=Montant.flag;
-		assertEquals(expectedReturn,actualReturn);
+		m1.setmonnaie(Monnaie.dollar);
+
+		assertEquals("superieur",m.Comparaison(m1));
 	}
 
 }

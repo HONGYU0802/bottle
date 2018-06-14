@@ -33,14 +33,12 @@ public class Montant {
 	}
 	
 	//Q5: Conversion en chaine de caractere????? (test)
-	void ConversionCaractere(){
+	String ConversionCaractere(){
 		if(monnaie==Monnaie.euro){
-			this.monnaie=Monnaie.dollar;
-			System.out.println(somme+" dollar");
+			return somme +"euro";
 		}
-		else if(monnaie==Monnaie.dollar){
-			this.monnaie=Monnaie.euro;
-			System.out.println(somme+" euro");
+		else{
+			return somme +"dollar";
 		}
 	}
 	
@@ -48,72 +46,60 @@ public class Montant {
 	double ConversionMontant(){
 		if(monnaie==Monnaie.euro){
 			this.somme*=1.16;
+			this.monnaie=Monnaie.dollar;
+			return somme;
 		}
-		if(monnaie==Monnaie.dollar){
+		else if(monnaie==Monnaie.dollar){
 			this.somme*=0.84;
+			this.monnaie=Monnaie.euro;
+			return somme;
 		}
-		return somme;
+		return somme;		
 	}
 	
 	//Q7: Test d'egalite entre deux montants (test)
-	boolean egale(Montant montant2){
+	String egale(Montant montant2){
 			if(this.monnaie!=montant2.monnaie()){
 				if(this.doubleValue()==montant2.ConversionMontant()){
-					System.out.println("ILs sont egales");
-					return true;
+					return "Ils sont egales";
 				}
 				else{
-					System.out.println("ILs ne sont pas egales");
-					return false;
+					return "Ils ne sont pas egales";
 				}		
 			}
 			else{
 				if(this.doubleValue()==montant2.doubleValue()){
-					System.out.println("ILs sont egales");
-					return true;
+					return "Ils sont egales";
 				}
 				else{
-					System.out.println("ILs ne sont pas egales");
-					return false;
+					return "Ils ne sont pas egales";
 				}
 			}
 	}
 	
 	//Q8: Comparaison selon l'ordre naturel sur meme monnaie (test)
-	void Comparaison(Montant montant2){
-			if(this.monnaie()!=montant2.monnaie()){
+	String Comparaison(Montant montant){
+			if(this.monnaie()!=montant.monnaie()){
 				this.ConversionMontant();
-				if(this.doubleValue()==montant2.doubleValue()){
-					System.out.println("montant1 = montant2");
-					flag=1;
-					return;
+				if(this.doubleValue()==montant.doubleValue()){
+					return "egale";
 				}
-				else if(this.doubleValue()>montant2.doubleValue()){
-					System.out.println("montant1 > montant2");
-					flag=2;
-					return;
+				else if(this.doubleValue()>montant.doubleValue()){
+					return "superieur";
 				}
 				else{
-					System.out.println("montant1 < montant2");
-					flag=3;
-					return;
+					return "inferieur";
 				}
 			}
 			else{
-				if(this.doubleValue()==montant2.doubleValue()){
-					System.out.println("montant1 = montant2");
-					flag=4;
-					return;
+				if(this.doubleValue()==montant.doubleValue()){
+					return "egale";
 				}
-				else if(this.doubleValue()>montant2.doubleValue()){
-					System.out.println("montant1 > montant2");
-					flag=5;
-					return;
+				else if(this.doubleValue()>montant.doubleValue()){
+					return "superieur";
 				}
 				else{
-					System.out.println("montant1 < montant2");
-					flag=6;
-					return;
+					return "inferieur";
 				}
 			}
 	}
