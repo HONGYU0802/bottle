@@ -37,6 +37,7 @@ public class GroupeTest {
 	@Test
 	public final void testAdd() {
 		
+		
 	}
 
 	@Test
