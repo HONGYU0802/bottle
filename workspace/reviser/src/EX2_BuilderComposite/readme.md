@@ -1,1 +1,1 @@
-![xgcalendar screenshot1](res/img/BuilderComposite.png) 
+![xgcalendar screenshot1](res/BuilderComposite.png) 
