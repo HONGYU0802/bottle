@@ -14,8 +14,8 @@ public class MontantTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		m= new Montant();
-		m1= new Montant();
+		m= new Montant(100);
+		m1= new Montant(100,Monnaie.dollar);
 	}
 
 	@After
@@ -23,36 +23,29 @@ public class MontantTest {
 	}
 
 	@Test
-	public final void testInitial() {
-		assertEquals(0,m.doubleValue(),0.01);
+	public final void testMontant(){
+		assertEquals(100,m.doubleValue(),0.01);
 		assertEquals(Monnaie.euro,m.monnaie());
 	}
 
 	@Test
-	public final void testConversionCaractere() {
-		assertEquals("0.0euro", m.ConversionCaractere());
+	public final void testtoString() {
+		assertEquals("100.0euro", m.toString());
 	}
 
 	@Test
 	public final void testConversionMontant() {
-		m.setsomme(100);
 		assertEquals(116,m.ConversionMontant(),0.01);
 	}
 	
 	@Test
-	public final void testEgale() {
-		m.setsomme(100);
-		m1.setsomme(1000);		
-		assertEquals("Ils ne sont pas egales", m.egale(m1));
+	public final void testequals() {	
+		assertEquals(false, m.equals(m1));
 	}
 
 	@Test
-	public final void testComparaison() {
-		m.setsomme(100);
-		m1.setsomme(100);
-		m1.setmonnaie(Monnaie.dollar);
-
-		assertEquals("superieur",m.Comparaison(m1));
+	public final void testcompareTo() {
+		assertEquals(1,m.compareTo(m1));
 	}
 
 }

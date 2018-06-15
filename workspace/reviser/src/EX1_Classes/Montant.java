@@ -1,7 +1,7 @@
 package EX1_Classes;
 
 //Q2: Declaration de la classe Montant
-public class Montant {
+public class Montant implements Comparable<Montant>{
 	
 	private double somme;
 	private Monnaie monnaie;
@@ -24,20 +24,25 @@ public class Montant {
 	}
 	
 	//Q4: Initialisation (test)
-	public Montant(){
-		this.somme=0;
+	public Montant(double somme, Monnaie monnaie){
+		this.somme=somme;
+		this.monnaie=monnaie;
+	}
+	
+	public Montant(double somme){
+		this.somme=somme;
 		this.monnaie=Monnaie.euro;
 	}
 	
 	//Q5: Conversion en chaine de caractere (test)
-	String ConversionCaractere(){
-		if(monnaie==Monnaie.euro){
-			return somme +"euro";
+	@Override
+	public String toString(){
+		if(this.monnaie==Monnaie.euro){
+			return this.somme+"euro";
 		}
-		else{
-			return somme +"dollar";
-		}
+		return this.somme+"dollar";
 	}
+	
 	
 	//Q6: Conversion d'un montant (test)
 	double ConversionMontant(){
@@ -55,49 +60,44 @@ public class Montant {
 	}
 	
 	//Q7: Test d'egalite entre deux montants (test)
-	String egale(Montant montant2){
-			if(this.monnaie!=montant2.monnaie()){
-				if(this.doubleValue()==montant2.ConversionMontant()){
-					return "Ils sont egales";
-				}
-				else{
-					return "Ils ne sont pas egales";
-				}		
-			}
-			else{
-				if(this.doubleValue()==montant2.doubleValue()){
-					return "Ils sont egales";
-				}
-				else{
-					return "Ils ne sont pas egales";
-				}
-			}
+	@Override
+	public boolean equals(Object obj){
+		if(obj instanceof Montant){
+			Montant montant=(Montant) obj;
+			if(this.somme==montant.somme && this.monnaie==montant.monnaie)
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode(){
+		//return Double.valueOf(somme).hashCode()^monnaie.hashCode();
+		return super.hashCode();
 	}
 	
 	//Q8: Comparaison selon l'ordre naturel sur meme monnaie (test)
-	String Comparaison(Montant montant){
-			if(this.monnaie()!=montant.monnaie()){
-				this.ConversionMontant();
-				if(this.doubleValue()==montant.doubleValue()){
-					return "egale";
-				}
-				else if(this.doubleValue()>montant.doubleValue()){
-					return "superieur";
-				}
-				else{
-					return "inferieur";
-				}
+	@Override
+	public int compareTo(Montant montant) {
+		if(this.monnaie()!=montant.monnaie()){
+			this.ConversionMontant();
+			if(this.somme<montant.somme){
+				return -1;
 			}
-			else{
-				if(this.doubleValue()==montant.doubleValue()){
-					return "egale";
-				}
-				else if(this.doubleValue()>montant.doubleValue()){
-					return "superieur";
-				}
-				else{
-					return "inferieur";
-				}
+			if(this.somme>montant.somme){
+				return 1;
 			}
+			return 0;
+		}
+		else{
+			if(this.somme<montant.somme){
+				return -1;
+			}
+			if(this.somme>montant.somme){
+				return 1;
+			}
+			return 0;
+		}
+		
 	}
 }
