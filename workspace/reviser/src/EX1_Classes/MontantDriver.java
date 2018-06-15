@@ -5,8 +5,6 @@ public class MontantDriver {
 	public static void main(String[] args) {
 		Montant montant1=new Montant();
 		Montant montant2=new Montant();
-		montant1.Initial();
-		montant2.Initial();
 		montant1.setsomme(100);
 		montant2.setsomme(100);
 		montant2.setmonnaie(Monnaie.dollar);

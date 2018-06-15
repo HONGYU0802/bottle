@@ -1,19 +1,16 @@
 package EX1_Classes;
 
-
-
 //Q2: Declaration de la classe Montant
 public class Montant {
 	
-	public static int flag=0;
 	private double somme;
 	private Monnaie monnaie;
 
-	void setsomme(double s){
+	public void setsomme(double s){
 		this.somme=s;
 	}
 	
-	void setmonnaie(Monnaie m){
+	public void setmonnaie(Monnaie m){
 		this.monnaie=m;
 	}
 	
@@ -27,12 +24,12 @@ public class Montant {
 	}
 	
 	//Q4: Initialisation (test)
-	void Initial(){
+	public Montant(){
 		this.somme=0;
 		this.monnaie=Monnaie.euro;
 	}
 	
-	//Q5: Conversion en chaine de caractere????? (test)
+	//Q5: Conversion en chaine de caractere (test)
 	String ConversionCaractere(){
 		if(monnaie==Monnaie.euro){
 			return somme +"euro";

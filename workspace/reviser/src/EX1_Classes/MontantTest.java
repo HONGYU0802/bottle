@@ -16,8 +16,6 @@ public class MontantTest {
 	public void setUp() throws Exception {
 		m= new Montant();
 		m1= new Montant();
-		m.Initial();
-		m1.Initial();
 	}
 
 	@After
