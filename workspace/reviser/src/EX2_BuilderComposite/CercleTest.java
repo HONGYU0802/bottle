@@ -1,7 +1,5 @@
 package EX2_BuilderComposite;
 
-import static org.junit.Assert.*;
-
 import java.awt.Color;
 import java.awt.Point;
 
