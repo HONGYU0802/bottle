@@ -43,7 +43,7 @@ public class Cercle extends Forme{
 	
 	@Override
 	public String toString(){
-		return name+"\nCoordonnees: "+coordonnees+"\nRemplissageColor: "+remplissageColor+"\nContourColor: "+contourColor+"\n";
+		return name+coordonnees+remplissageColor+contourColor;
 	}
 	
 	@Override

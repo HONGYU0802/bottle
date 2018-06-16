@@ -31,17 +31,23 @@ public class GroupeTest {
 
 	@Test
 	public final void testPrint() {
-		//assertEquals("sss", forme1.print());×Ö·û´®Êý×Ö¶Ô±È
+	
 	}
 
 	@Test
 	public final void testAdd() {
-		
+		forme1.add(cercle1);
+		assertEquals("cercle1java.awt.Point[x=10,y=10]java.awt.Color[r=0,g=0,b=0]java.awt.Color[r=0,g=0,b=255]", cercle1.toString());
 	}
 
 	@Test
 	public final void testRemove() {
-		
+		Cercle cercle2 = new Cercle.Builder(new Point(20,20)).build();
+		cercle2.setName("cercle2");
+		forme1.add(cercle1);
+		forme1.add(cercle2);
+		forme1.remove(cercle1);
+		assertEquals("cercle1java.awt.Point[x=10,y=10]java.awt.Color[r=0,g=0,b=0]java.awt.Color[r=0,g=0,b=255]", cercle1.toString());
 	}
 
 }

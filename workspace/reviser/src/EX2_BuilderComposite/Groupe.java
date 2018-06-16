@@ -14,7 +14,7 @@ public class Groupe extends Forme{
 	
 	@Override
 	public void print(){
-		System.out.println(toString());
+		//System.out.println(toString());
 		for(Forme forme : childFormes){		
 			forme.print();
 		}
