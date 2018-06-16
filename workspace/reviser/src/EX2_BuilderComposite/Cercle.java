@@ -4,11 +4,7 @@ import java.awt.Color;
 import java.awt.Point;
 
 //leaf
-public class Cercle implements Forme{
-	private final Point coordonnees;
-	
-	private final Color remplissageColor;
-	private final Color contourColor;
+public class Cercle extends Forme{
 	
 	//¾²Ì¬ÄÚ²¿Àà
 	public static class Builder{
@@ -41,17 +37,9 @@ public class Cercle implements Forme{
 	}
 	
 	private Cercle(Builder builder){
-		this.coordonnees=builder.coordonnees;
-		
-		this.remplissageColor=builder.remplissageColor;
-		this.contourColor=builder.contourColor;
+		super(builder.coordonnees, builder.remplissageColor, builder.contourColor);
 	}
 	
-	private String name;
-
-	public void setName(String name){
-		this.name=name;
-	}
 	
 	@Override
 	public String toString(){

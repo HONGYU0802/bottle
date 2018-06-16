@@ -4,15 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Composite
-public class Groupe implements Forme{
+public class Groupe extends Forme{
 	private List<Forme> childFormes=new ArrayList<Forme>();
-	private String name;
-
-	public void setName(String name){
-		this.name=name;
-	}
-	
-	
+		
 	@Override
 	public String toString(){
 		return name;
